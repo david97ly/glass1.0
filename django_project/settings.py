@@ -17,18 +17,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'GO07XZTu3JCoAa5nieBsm4qdjsFNkjLGX0OC6pqEkE9FLKhsKZ'
+SECRET_KEY = 'ZOmsXuQ0bGhxrNBRft86U3DxAOJBHqozkP39k27KiivCpdJL8s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
-
+#from south.db import db
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'south',
+    'glass',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,7 +63,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django',
         'USER': 'django',
-        'PASSWORD': 'PhUYKd9GW6',
+        'PASSWORD': 'afcd9a401edd42a5',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -69,7 +72,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-sv'
 
 TIME_ZONE = 'UTC'
 
@@ -82,5 +85,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'])
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 STATIC_URL = '/static/'
+
+#STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
