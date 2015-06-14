@@ -63,10 +63,10 @@ def conf(request):
         form = SlideForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/conf')
+            return HttpResponseRedirect("/")
     else:
         form = SlideForm()
         
         template = "cofiguraciones.html"
-        return render_to_response(template,context_instance = RequestContext(request,locals()))
+        return render_to_response(template,context_instance=RequestContext(request,locals()))
     
