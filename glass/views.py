@@ -63,7 +63,7 @@ def conf(request):
         form = SlideForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/home")
+            return redirect("/servicios")
     else:
         form = SlideForm()
         
