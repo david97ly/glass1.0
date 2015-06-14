@@ -1,18 +1,20 @@
 from django.db import models
 
 # Create your models here.
+class Orden(models.Model):
+	orden = models.CharField(max_length = 10)
+
 class Fotos(models.Model):
 	nombre = models.CharField(max_length=500)
 	ruta = models.ImageField(upload_to='photos')
 	valida = models.BooleanField(default=False)
 
 class Slide(models.Model):
-	ORDER_POSITION = (('Primero','1'),('Segundo','2'),('Tercero','3'),)
 	mensaje = models.CharField(max_length=500)
 	submensaje = models.CharField(max_length=500)
 	valida = models.BooleanField(default=False)
 	foto = models.ImageField(upload_to='photos')
-	orden = models.CharField(max_length = 10, choices = ORDER_POSITION default='1')
+	orden = models.ForeignKey(Orden)
 
 		
 class Mensajeb(models.Model):
@@ -26,6 +28,7 @@ class Info(models.Model):
 	informacion = models.CharField(max_length=100)
 	valida = models.BooleanField(default=False)
 	foto = models.ImageField(upload_to='photos')
+	orden = models.ForeignKey(Orden)
 	
 class Contactos(models.Model):
 	telefono1 = models.CharField(max_length=500)
