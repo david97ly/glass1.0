@@ -59,7 +59,7 @@ def login(request):
 @login_required
 def conf(request):
     if request.POST:
-        form = SlideForm(request.POST)
+        form = SlideForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("/")
