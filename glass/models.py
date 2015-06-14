@@ -12,7 +12,7 @@ class Slide(models.Model):
 	submensaje = models.CharField(max_length=500)
 	valida = models.BooleanField(default=False)
 	foto = models.ImageField(upload_to='photos')
-	orden = models.CharField(max_length = 10, choices = ORDER_POSITION)
+	orden = models.CharField(max_length = 10, choices = ORDER_POSITION default='1')
 
 		
 class Mensajeb(models.Model):
