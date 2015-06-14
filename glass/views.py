@@ -56,7 +56,7 @@ def login(request):
     return render_to_response('login.html',c)
     
     
-@login_required
+#@login_required
 def conf(request):
     if request.POST:
         form = SlideForm(request.POST, request.FILES)
