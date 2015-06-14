@@ -58,12 +58,11 @@ def login(request):
     
 @login_required
 def conf(request):
-    fotos = Fotos.objects.all()
     if request.method == 'POST':
         form = SlideForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/servicios")
+            return HttpResponseRedirect("/")
     else:
         form = SlideForm()
         
