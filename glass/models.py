@@ -7,10 +7,12 @@ class Fotos(models.Model):
 	valida = models.BooleanField(default=False)
 
 class Slide(models.Model):
+	ORDER_POSITION = (('Primero','1'),('Segundo','2'),('Tercero','3'),)
 	mensaje = models.CharField(max_length=500)
 	submensaje = models.CharField(max_length=500)
 	valida = models.BooleanField(default=False)
 	foto = models.ImageField(upload_to='photos')
+	orden = models.CharField(max_length = 10, choices = ORDER_POSITION)
 
 		
 class Mensajeb(models.Model):
