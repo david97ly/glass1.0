@@ -6,6 +6,7 @@ from models import *
 class SlideForm(ModelForm):
     class Meta:
         model = Slide
+        exclude = ("foto",)
 	   
 class MensajebForm(ModelForm):
     class Meta:
