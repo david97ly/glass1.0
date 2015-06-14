@@ -65,7 +65,7 @@ def conf(request):
             return HttpResponseRedirect("/")
     else:
         form = SlideForm()
-        slide = Slide.objects.get(id=2)
+        slide = Slide.objects.get(id=1)
         sl = slide.mensaje
         
         template = "cofiguraciones.html"
