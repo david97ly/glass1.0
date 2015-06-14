@@ -1,7 +1,8 @@
 from django.db import models
 
 # Create your models here.
-
+class Orden(models.Model):
+	orden = models.CharField(max_length = 10,blank=True, null=True, default='Primero')
 
 class Fotos(models.Model):
 	nombre = models.CharField(max_length=500)
