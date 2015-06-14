@@ -56,7 +56,7 @@ def login(request):
     return render_to_response('login.html',c)
     
     
-#@login_required
+@login_required
 def conf(request):
     if request.POST:
         form = SlideForm(request.POST, request.FILES)
@@ -65,6 +65,7 @@ def conf(request):
             return HttpResponseRedirect("/")
     else:
         form = SlideForm()
+        slide = Slideform.objects.get(id=1)
         
         template = "cofiguraciones.html"
         return render_to_response(template,context_instance=RequestContext(request,locals()))
